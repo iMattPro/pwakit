@@ -140,8 +140,6 @@ class acp_file_test extends phpbb_functional_test_case
 		// Manually copy image to site icon dir
 		@copy($this->fixtures . $test_image, $this->icons . $test_image);
 
-		chmod($this->icons . $test_image, 0666);
-
 		// Check icon does not appear in the html tags
 		$this->assertAppleTouchIconNotPresent();
 
