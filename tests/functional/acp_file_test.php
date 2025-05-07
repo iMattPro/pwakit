@@ -186,6 +186,7 @@ class acp_file_test extends phpbb_functional_test_case
 		$crawler = self::request('GET', 'adm/index.php?i=-phpbb-pwakit-acp-pwa_acp_module&mode=settings&sid=' . $this->sid);
 		$form = $crawler->selectButton('delete')->form(['delete' => $icon]);
 		$crawler = self::submit($form);
+		sleep(5);
 		$form = $crawler->selectButton('confirm')->form(['delete' => $icon]);
 		$crawler = self::submit($form);
 		$this->assertStringContainsString($this->lang('ACP_PWA_IMG_DELETED', $icon), $crawler->text());
