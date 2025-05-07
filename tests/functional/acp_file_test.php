@@ -138,7 +138,7 @@ class acp_file_test extends phpbb_functional_test_case
 		$test_image = 'bar.png';
 
 		// Manually copy image to site icon dir
-		@copy($this->fixtures . $test_image, $this->icons . $test_image);
+		copy($this->fixtures . $test_image, $this->icons . $test_image);
 
 		// Check icon does not appear in the html tags
 		$this->assertAppleTouchIconNotPresent();
@@ -186,7 +186,6 @@ class acp_file_test extends phpbb_functional_test_case
 		$crawler = self::request('GET', 'adm/index.php?i=-phpbb-pwakit-acp-pwa_acp_module&mode=settings&sid=' . $this->sid);
 		$form = $crawler->selectButton('delete')->form(['delete' => $icon]);
 		$crawler = self::submit($form);
-		sleep(5);
 		$form = $crawler->selectButton('confirm')->form(['delete' => $icon]);
 		$crawler = self::submit($form);
 		$this->assertStringContainsString($this->lang('ACP_PWA_IMG_DELETED', $icon), $crawler->text());
