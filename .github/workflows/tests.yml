@@ -22,5 +22,9 @@ jobs:
             RUN_MSSQL_JOBS: 0
             RUN_PGSQL_JOBS: 0
             RUN_MYSQL_JOBS: 0
+            EPV: 0
+            SNIFF: 0
+            IMAGE_ICC: 0
+            EXECUTABLE_FILES: 0
         secrets:
             CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }} # Do not change this
